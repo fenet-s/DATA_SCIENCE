@@ -1,0 +1,39 @@
+def add(a, b): return a + b
+def subtract(a, b): return a - b
+def multiply(a, b): return a * b
+def divide(a, b): 
+    return a / b if b != 0 else "Error: Division by zero"
+
+def calculator():
+    """
+    A modular CLI calculator. 
+    Demonstrates function mapping and user input handling.
+    """
+    print("--- DS Python Foundations Calculator ---")
+    print("Operations: 1.Add | 2.Subtract | 3.Multiply | 4.Divide")
+    
+    try:
+        choice = input("Select operation (1-4): ")
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+
+        # Mapping choices to functions
+        operations = {
+            '1': add,
+            '2': subtract,
+            '3': multiply,
+            '4': divide
+        }
+
+        func = operations.get(choice)
+        if func:
+            result = func(num1, num2)
+            print(f"Result: {result}")
+        else:
+            print("Invalid Input")
+            
+    except ValueError:
+        print("Error: Please enter valid numerical values.")
+
+if __name__ == "__main__":
+    calculator()
